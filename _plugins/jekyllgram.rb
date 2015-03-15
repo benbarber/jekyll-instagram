@@ -1,5 +1,5 @@
 #
-# JekyllGram
+# Jekyllgram
 #
 # A Jekyll plugin to pull in your latest Instagram photos
 # v0.01
@@ -16,6 +16,7 @@
 # ENV['JEKYLLGRAM_KEY'] = {{ INSTAGRAM_CLIENT_ID }}
 #
 # Usage in your templates:
+# You can replace the 6 below with the number of photos you wish to display
 #
 # {% jekyllgram 6 %}
 #    <a href="{{ photo.link }}" title="{{ photo.caption.text }}">
@@ -31,12 +32,12 @@ require 'json'
 
 module Jekyll
   # _plugins/jekyllgram.rb
-  class JekyllGram < Liquid::Block
+  class Jekyllgram < Liquid::Block
 
     include Liquid::StandardFilters
 
     def initialize(tag, params, token)
-      @limit = params.to_i | 6
+      @limit = params.to_i
       @user_id = ENV['JEKYLLGRAM_USER']
       @client_id = ENV['JEKYLLGRAM_KEY']
       @api_url = 'https://api.instagram.com/v1'
@@ -80,4 +81,4 @@ module Jekyll
   end
 end
 
-Liquid::Template.register_tag('jekyllgram', Jekyll::JekyllGram)
+Liquid::Template.register_tag('jekyllgram', Jekyll::Jekyllgram)
