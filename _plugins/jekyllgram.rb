@@ -73,10 +73,12 @@ module Jekyll
       method = "/users/#{@user_id}/media/recent"
       keys = "/?client_id=#{@client_id}"
 
-      resp = Net::HTTP.get_response(URI.parse(@api_url + method + keys))
-      resp = JSON.parse(resp.body)
-
-      resp['data']
+      response = Net::HTTP.get_response(URI.parse(@api_url + method + keys))
+      return [] unless response.is_a?(Net::HTTPSuccess)
+      
+      response = JSON.parse(response.body)
+      
+      response['data']
     end
   end
 end
