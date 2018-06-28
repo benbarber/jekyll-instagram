@@ -40,6 +40,7 @@ module Jekyll
       @limit = params.to_i
       @user_id = ENV['JEKYLLGRAM_USER']
       @client_id = ENV['JEKYLLGRAM_KEY']
+      @access_token = ENV['JEKYLLGRAM_TOKEN']
       @api_url = 'https://api.instagram.com/v1'
 
       super
@@ -71,7 +72,7 @@ module Jekyll
 
     def recent_photos
       method = "/users/#{@user_id}/media/recent"
-      keys = "/?client_id=#{@client_id}"
+      keys = "/?client_id=#{@client_id}&access_token=#{@access_token}"
 
       response = Net::HTTP.get_response(URI.parse(@api_url + method + keys))
       return [] unless response.is_a?(Net::HTTPSuccess)
