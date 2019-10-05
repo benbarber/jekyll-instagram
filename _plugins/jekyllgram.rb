@@ -11,11 +11,10 @@
 #
 # Setup:
 #
-# To use this plugin you will need to make your Instagram API credentials
-# available as environment variables below:
+# To use this plugin you will need to make your Instagram API access token
+# available as an environment variable like below:
 #
-# ENV['JEKYLLGRAM_USER'] = {{ INSTAGRAM_USER_ID }}
-# ENV['JEKYLLGRAM_KEY'] = {{ INSTAGRAM_CLIENT_ID }}
+# ENV['JEKYLLGRAM_TOKEN'] = {{ INSTAGRAM_ACCESS_TOKEN }}
 #
 # Usage in your templates:
 # You can replace the 6 below with the number of photos you wish to display

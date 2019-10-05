@@ -2,22 +2,18 @@
 
 Jekyll Instagram aka Jekyllgram is a Jekyll plugin for displaying a feed of your recent Instagram photos.
 
-
-
 ### Installation and Setup
 
-To install this plugin into your project you will need to copy _plugins/jekyllgram.rb into the _plugins directory 
+To install this plugin into your project you will need to copy _plugins/jekyllgram.rb into the _plugins directory
 in your Jekyll project.
 
-For the plugin to work you will need to register an application with the Instagram API and then make your user id 
-and client id available as environment varibles below:
+For the plugin to work you will need to register an application with the Instagram API and then make your access token available as an environment varible like below:
 
 ```ruby
-ENV['JEKYLLGRAM_USER'] = {{ INSTAGRAM_USER_ID }}
-ENV['JEKYLLGRAM_KEY'] = {{ INSTAGRAM_CLIENT_ID }}
+ENV['JEKYLLGRAM_TOKEN'] = {{ INSTAGRAM_ACCESS_TOKEN }}
 ```
 
-
+@access_token = ENV['JEKYLLGRAM_TOKEN']
 
 ### Displaying the results in your templates
 
