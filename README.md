@@ -26,3 +26,11 @@ You can replace the 6 below with the number of photos you wish to display
   </a>
 {% endjekyllgram %}
 ```
+
+### Contributors
+
+- [Zachary Wright](https://github.com/zachwright)
+
+### Changelog
+
+- (v1.0.0) Initial release
