@@ -38,8 +38,8 @@ module Jekyll
 
     def initialize(tag, params, token)
       @limit = params.to_i
-      @access_token = ENV['JEKYLLGRAM_TOKEN']
-      @api_url = 'https://api.instagram.com/v1'
+      @access_token = {{ INSTAGRAM_ACCESS_TOKEN }}
+      @api_url = 'https://graph.instagram.com/me'
 
       super
     end
@@ -69,8 +69,9 @@ module Jekyll
     end
 
     def recent_photos
-      method = '/users/self/media/recent'
-      keys = "/?access_token=#{@access_token}"
+      fields = 'media_url,caption,thumbnail_url,permalink' # Add field ids for reference https://developers.facebook.com/docs/instagram-basic-display-api/reference/media#fields
+      method = "/media?fields=#{fields}"
+      keys = "&access_token=#{@access_token}"
 
       response = Net::HTTP.get_response(URI.parse(@api_url + method + keys))
       return [] unless response.is_a?(Net::HTTPSuccess)
