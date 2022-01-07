@@ -40,6 +40,8 @@ module Jekyll
       @limit = params.to_i
       @access_token = ENV['JEKYLLGRAM_TOKEN']
       @api_url = 'https://graph.instagram.com/me'
+      @logger = Logger.new(STDOUT)
+      @logger_label = "JEKYLL INSTAGRAM PLUGIN"
 
       super
     end
@@ -75,11 +77,23 @@ module Jekyll
 
       request_url = "#{@api_url}/media?fields=#{fields}&access_token=#{@access_token}"
 
+      if !@access_token or @access_token.empty?
+        @logger.error("#{@logger_label} - `JEKYLLGRAM_TOKEN` is not set, please set this to your Instagram API access token.")
+        return []
+      end
+
+      @logger.debug("#{@logger_label} - Fetching latest Instagram photos...")
+
       response = Net::HTTP.get_response(URI.parse(request_url))
-      return [] unless response.is_a?(Net::HTTPSuccess)
+
+      unless response.is_a?(Net::HTTPSuccess)
+        @logger.error("#{@logger_label} - #{response.body}")
+        return []
+      end
+
+      @logger.debug("#{@logger_label} - Fetch success")
 
       response = JSON.parse(response.body)
-
       response['data']
     end
   end
