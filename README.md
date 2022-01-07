@@ -1,6 +1,6 @@
 # Jekyll Instagram Plugin
 
-Jekyll Instagram aka Jekyllgram is a Jekyll plugin for displaying a feed of your recent Instagram photos.
+Jekyllgram is a Jekyll plugin for displaying a feed of your recent Instagram photos.
 
 
 ### Installation and Setup
