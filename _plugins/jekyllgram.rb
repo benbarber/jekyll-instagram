@@ -1,29 +1,29 @@
 # frozen_string_literal: true
 
 #
-# Jekyllgram
+# Jekyll Instagram Plugin
+# Jekyllgram is a Jekyll plugin for displaying a feed of your recent Instagram photos.
 #
-# A Jekyll plugin to pull in your latest Instagram photos
-# v0.01
-# http://benbarber.uk
+# v2.0.0
+# https://benbarber.github.com/jekyll-instagram
 # Copyright 2015 Ben Barber
 # MIT License
 #
 # Setup:
 #
 # To use this plugin you will need to make your Instagram API access token
-# available as an environment variable like below:
-#
-# ENV['JEKYLLGRAM_TOKEN'] = {{ INSTAGRAM_ACCESS_TOKEN }}
+# available as an environment variable named 'JEKYLLGRAM_TOKEN'.
 #
 # Usage in your templates:
-# You can replace the 6 below with the number of photos you wish to display
+#
+# To display the feed of your recent Instagram photos you will need to insert the liquid 
+# template tag below into one of the pages of your Jekyll site. You can replace the 6 
+# below with the number of photos from Instagram that you wish to display.
 #
 # {% jekyllgram 6 %}
-#    <a href="{{ photo.link }}" title="{{ photo.caption.text }}">
-#      <img src="{{ photo.images.thumbnail.url }}"
-#           title="{{ photo.caption.text }}" />
-#    </a>
+#   <a href="{{ photo.permalink }}" title="{{ photo.caption }}" id="IG-{{ photo.id }}">
+#     <img src="{{ photo.media_url }}" title="{{ photo.caption }}" width="250" height="250" />
+#   </a>
 # {% endjekyllgram %}
 #
 
@@ -69,11 +69,13 @@ module Jekyll
     end
 
     def recent_photos
-      fields = 'media_url,caption,thumbnail_url,permalink' # Add field ids for reference https://developers.facebook.com/docs/instagram-basic-display-api/reference/media#fields
-      method = "/media?fields=#{fields}"
-      keys = "&access_token=#{@access_token}"
+      # A full list of fields available can be fount at: 
+      # https://developers.facebook.com/docs/instagram-basic-display-api/reference/media#fields
+      fields = 'id,timestamp,permalink,caption,media_type,media_url,thumbnail_url,username'
 
-      response = Net::HTTP.get_response(URI.parse(@api_url + method + keys))
+      request_url = "#{@api_url}/media?fields=#{fields}&access_token=#{@access_token}"
+
+      response = Net::HTTP.get_response(URI.parse(request_url))
       return [] unless response.is_a?(Net::HTTPSuccess)
 
       response = JSON.parse(response.body)
