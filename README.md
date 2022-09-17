@@ -17,7 +17,7 @@ Your instagram account will need to be public for this to work correctly. To avo
 
 ### Working Example
 
-There is a working example of a basic Jekyll site using this plugin that is available in the `docs` directory of this repo.
+There is a working example of a basic Jekyll site using this plugin that is available in the `example` directory of this repo.
 
 
 ### Displaying the results in your templates
