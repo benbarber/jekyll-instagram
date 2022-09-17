@@ -5,7 +5,7 @@ Jekyllgram is a Jekyll plugin for displaying a feed of your recent Instagram pho
 
 ### Installation and Setup
 
-To install this plugin into your project you will need to copy _plugins/jekyllgram.rb into the _plugins directory
+To install this plugin into your project you will need to copy `_plugins/jekyllgram.rb` into the `_plugins` directory
 in your Jekyll project.
 
 Then for the plugin to be able to communicate with Instagram you will need to register an application with the Instagram Basic Display API and then make your access token available as an environment variable on your dev/build machine named `JEKYLLGRAM_TOKEN`.
@@ -17,7 +17,7 @@ Your instagram account will need to be public for this to work correctly. To avo
 
 ### Working Example
 
-There is a working example of a basic Jekyll site using this plugin that is available in the `example` directory of this repo.
+There is a working example of a basic Jekyll site using this plugin that is available in the `docs` directory of this repo.
 
 
 ### Displaying the results in your templates
