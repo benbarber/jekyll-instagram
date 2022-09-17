@@ -10,9 +10,14 @@ in your Jekyll project.
 
 Then for the plugin to be able to communicate with Instagram you will need to register an application with the Instagram Basic Display API and then make your access token available as an environment variable on your dev/build machine named `JEKYLLGRAM_TOKEN`.
 
-There is an easy step by step guide to this available [here](https://essential-addons.com/elementor/how-to-get-instagram-access-token/).
+There is an easy step by step guide for getting your Instagram access token available [here](https://essential-addons.com/elementor/how-to-get-instagram-access-token/).
 
 Your instagram account will need to be public for this to work correctly. To avoid making your main account public you can create a separate Instagram account just for your public feed and use that account.
+
+
+### Working Example
+
+There is a working example of a basic Jekyll site using this plugin that is available in the `example` directory of this repo.
 
 
 ### Displaying the results in your templates
