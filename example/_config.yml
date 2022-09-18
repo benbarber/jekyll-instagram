@@ -31,8 +31,6 @@ github_username:  jekyll
 
 # Build settings
 theme: minima
-plugins:
-  - jekyllgram
 
 # Exclude from processing.
 # The following items will not be processed, by default.
