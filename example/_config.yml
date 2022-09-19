@@ -18,9 +18,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Jekyllgram - a Jekyll Instagram Feed Plugin
+title: Jekyll-Instagram
 description: >- # this means to ignore newlines until "baseurl:"
-  Jekyllgram is a Jekyll plugin for displaying a feed of your recent Instagram photos.
+  Jekyll-Instagram is a Jekyll plugin for displaying a feed of your recent Instagram photos.
 baseurl: "/jekyll-instagram" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: benbarber
