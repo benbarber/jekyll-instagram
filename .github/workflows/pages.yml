@@ -11,6 +11,9 @@ on:
 jobs:
   jekyll:
     runs-on: ubuntu-latest
+    env:
+      JEKYLLGRAM_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+
     steps:
     - uses: actions/checkout@v2
 
