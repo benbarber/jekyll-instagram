@@ -1,6 +1,8 @@
-# Jekyll Instagram Plugin
+# Jekyll-Instagram Plugin
 
-Jekyllgram is a Jekyll plugin for displaying a feed of your recent Instagram photos.
+Jekyl-Instagram is a Jekyll plugin for displaying a feed of your recent Instagram photos.
+
+**Live demo available at: https://benbarber.github.io/jekyll-instagram/**
 
 
 ### Installation and Setup
@@ -31,6 +33,14 @@ To display the feed of your recent Instagram photos you will need to insert the 
   </a>
 {% endjekyllgram %}
 ```
+
+### Notes
+
+If publishing to GitHub pages and you get a "jekyllgram - Liquid tag not found" build error you will need to use a custom GitHub actions workflow for deployment. The reason for this is that the default GitHub pages deployment doesnt allow for 3rd party Jekyll plugins unless they have been whitelisted by GitHub.
+
+You can find more information [here](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins) and view the full whitelist of plugins [here](https://pages.github.com/versions/).
+
+You can find a working example of a custom GitHub actions workflow that publishes with this plugin at `.github/workflows/pages.yml`. This is used to publish the demo site which is available at https://benbarber.github.io/jekyll-instagram/
 
 
 ### Contributors
